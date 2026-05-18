@@ -3,6 +3,8 @@ const { syncUser ,addAddress , deleteAddress } = require("../controllers/authCon
 const { protect , admin } = require("../middleware/authMiddleware");
 const User = require('../models/User')
 const router = express.Router();
+const rateLimiterMiddleware = require("../middleware/rateLimiter");
+
 
 router.post("/sync", syncUser);
 router.delete("/address/:id", protect, deleteAddress);

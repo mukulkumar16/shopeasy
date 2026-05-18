@@ -2,11 +2,10 @@ const { ClerkExpressRequireAuth } = require("@clerk/clerk-sdk-node");
 const User = require("../models/User");
 
 exports.protect = [
-  ClerkExpressRequireAuth(), // verifies Clerk token
+  ClerkExpressRequireAuth(),
   async (req, res, next) => {
     try {
-      const clerkId = req.auth.userId; // 👈 THIS is the real user id
-
+      const clerkId = req.auth.userId; 
       const user = await User.findOne({ clerkId });
 
       if (!user) {

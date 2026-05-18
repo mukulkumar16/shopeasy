@@ -21,6 +21,8 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.6",
     "multer": "^2.0.2",
+    "rate-limiter-flexible": "^11.0.0",
+    "redis": "^5.12.1",
     "stripe": "^20.3.1"
   },
   "devDependencies": {

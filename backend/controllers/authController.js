@@ -4,6 +4,8 @@ exports.syncUser = async (req, res) => {
   const { clerkId, email, name } = req.body;
 
   try {
+
+    
     let user = await User.findOne({ clerkId });
 
     if (!user) {

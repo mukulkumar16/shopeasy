@@ -3,6 +3,9 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const {handleWebhook} = require('./controllers/webhookController')
+// const rateLimiterMiddleware = require("./middleware/rateLimiter");
+
+// app.use("/api/users", rateLimiterMiddleware, require("./routes/authRoute"));
 
 connectDB();
 
@@ -13,6 +16,8 @@ app.use(cors({
   credentials: true,
 }));
 
+// Apply globally
+// app.use(rateLimiter);
 
 app.post("/webhook", express.raw({ type: "application/json" }),handleWebhook );
 
