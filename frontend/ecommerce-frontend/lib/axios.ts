@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://shopeasy-a53s.onrender.com/",
+  baseURL: "https://shopeasy-a53s.onrender.com/api",
   withCredentials: true,
 });
 
