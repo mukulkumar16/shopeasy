@@ -107,16 +107,16 @@ export default function ProdCard({ product }: Props) {
         </div>
 
         {/* Product Details */}
-        <div className="p-4 flex flex-col flex-grow">
+        <div className="p-4 flex flex-col grow">
 
           {/* Title */}
-          <h2 className="text-sm font-medium text-gray-800 line-clamp-2 min-h-[40px]">
+          <h2 className="text-sm font-medium text-gray-800 line-clamp-2 min-h-10">
             {product.title}
           </h2>
 
           {/* Rating */}
           <div className="flex items-center gap-2 mt-2">
-            <span className="bg-green-600 text-white text-xs px-2 py-[2px] rounded">
+            <span className="bg-green-600 text-white text-xs px-2 py-0.5 rounded">
               {product.ratingsAverage ?? 4} ★
             </span>
             <span className="text-xs text-gray-500">(120)</span>

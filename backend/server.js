@@ -10,10 +10,12 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:3000", "https://your-frontend.vercel.app"],
+  origin: [
+    "http://localhost:3000",
+    "https://shopeasy-smoky.vercel.app"
+  ],
   credentials: true,
 }));
-
 
 
 app.post("/webhook", express.raw({ type: "application/json" }),handleWebhook );
