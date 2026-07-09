@@ -32,14 +32,16 @@ export default function SearchClient() {
     fetchProducts();
   }, [query]);
 
-  if (loading) return <div>Searching...</div>;
+  if (loading) return <div className="min-h-screen flex items-center justify-center">
+          <div className="w-10 h-10 border-4 border-black border-t-transparent rounded-full animate-spin"></div>
+        </div>;
 
   return (
     <div>
-      <h1>Search Results for "{query}"</h1>
+      <h1 className="p-4 text-2xl font-bold">Search Results for "{query}"</h1>
 
       {products.length === 0 ? (
-        <p>No products found</p>
+        <p className="p-4 text-2xl font-bold">No products found</p>
       ) : (
         <div className="grid md:grid-cols-4 gap-6">
           {products.map((product) => (
