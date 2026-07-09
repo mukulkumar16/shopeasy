@@ -12,10 +12,15 @@ interface Props {
 }
 
 export default function ProdCard({ product }: Props) {
-  const { getToken } = useAuth();
+  const { getToken, isSignedIn } = useAuth();
   const router = useRouter();
   const [inCart, setInCart] = useState(false);
   const handleOrderNow = async () => {
+    if (!isSignedIn) {
+      alert("Please login first to add products to your cart.");
+      router.push("/sign-in");
+      return;
+    }
     const token = await getToken();
 
     const res = await api.get("/users/me", {
@@ -33,6 +38,7 @@ export default function ProdCard({ product }: Props) {
 
   useEffect(() => {
     const checkCart = async () => {
+
       try {
         const token = await getToken();
 
@@ -56,6 +62,11 @@ export default function ProdCard({ product }: Props) {
   }, []);
 
   const handleAddToCart = async (productId: string) => {
+    if (!isSignedIn) {
+      alert("Please login first to add products to your cart.");
+      router.push("/sign-in");
+      return;
+    }
     try {
       const token = await getToken();
 
