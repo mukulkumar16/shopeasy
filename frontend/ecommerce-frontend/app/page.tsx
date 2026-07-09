@@ -18,21 +18,48 @@ export interface Product {
 export default function Home() {
 
   const [data, setData] = useState<Product[]>([]);
+   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const allpost = async () => {
       try {
+        setLoading(true);
         const res = await api.get("/products/postData");
         setData(res.data);
       } catch (error) {
         console.error(error);
+      }finally {
+        setLoading(false);
       }
     };
 
     allpost();
   }, []);
 
-  console.log("data of products " , data);
+  // console.log("data of products " , data);
+
+  if (loading) {
+  return (
+    <div className="px-6 py-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        {[...Array(16)].map((_, index) => (
+          <div
+            key={index}
+            className="animate-pulse rounded-lg border p-4 shadow"
+          >
+            <div className="h-48 bg-gray-300 rounded"></div>
+
+            <div className="mt-4 h-4 bg-gray-300 rounded w-3/4"></div>
+
+            <div className="mt-2 h-4 bg-gray-300 rounded w-1/2"></div>
+
+            <div className="mt-4 h-8 bg-gray-300 rounded"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
   return (
     <div className="bg-gray-100 min-h-screen">

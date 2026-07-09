@@ -80,7 +80,7 @@ export default function Header() {
               onClick={handleSearch}
               className="bg-white px-5 flex items-center outline justify-center rounded-r-sm"
             >
-              <Search className="text-gray-900" size={20} />
+              <Search className="text-gray-500" size={20} />
             </button>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function Header() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-            className="w-full px-4 py-2 text-black rounded-l-sm"
+            className="w-full px-4 py-2 text-white rounded-l-sm"
           />
           <button
             onClick={handleSearch}
